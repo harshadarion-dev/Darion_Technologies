@@ -8,21 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.status === 'ok') {
                 container.innerHTML = ''; // clear loading state
                 data.items.slice(0, 9).forEach(item => {
-                    // Strip weird HTML out of the title if present
+                    // Clean HTML from title if present
                     const cleanTitle = item.title.replace(/<[^>]*>?/gm, '');
 
-                    // Extract image safely. Uses enclosure if thumbnail breaks.
-                    let imageSrc = item.thumbnail;
-                    if (!imageSrc && item.enclosure && item.enclosure.link) {
-                        imageSrc = item.enclosure.link;
+                    // Extract image safely attempting multiple standard RSS locations
+                    let imageSrc = item.thumbnail || (item.enclosure && item.enclosure.link);
+
+                    // If still missing, parse the raw description HTML for embedded images
+                    if (!imageSrc) {
+                        const imgMatch = (item.content || item.description || '').match(/<img[^>]+src="([^">]+)"/);
+                        if (imgMatch && imgMatch[1]) {
+                            imageSrc = imgMatch[1];
+                        }
+                    }
+
+                    // Ultimate enterprise fallback guaranteeing the layout never breaks
+                    if (!imageSrc || imageSrc === '') {
+                        imageSrc = 'images/production_hero_1777316699933.png';
                     }
 
                     // Native Darion Carbon Card
                     const card = `
                     <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-4" style="margin-bottom: 2rem;">
-                        <a href="${item.link}" target="_blank" class="ibm-card" style="text-decoration:none;">
-                            ${imageSrc ? `<div style="width:100%; height:12rem; background:url('${imageSrc}') center center / cover;"></div>` : '<div style="width:100%; height:12rem; background-color:var(--ibm-gray-100);"></div>'}
-                            <div class="ibm-card-content">
+                        <a href="${item.link}" target="_blank" class="ibm-card" style="text-decoration:none; display: flex; flex-direction: column; height: 100%;">
+                            <div style="width:100%; height:12rem; background:url('${imageSrc}') center center / cover; border-bottom: 1px solid var(--ibm-gray-20);"></div>
+                            <div class="ibm-card-content" style="flex: 1;">
                                 <p class="ibm-card-eyebrow">Technical Dispatch • ${new Date(item.pubDate).toLocaleDateString()}</p>
                                 <h3 class="ibm-card-title">${cleanTitle}</h3>
                             </div>
