@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('rss-feed-container');
 
-    // Using heavily cached Tech News RSS to JSON logic
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftechcrunch.com%2Ffeed%2F')
+    // Using guaranteed BBC Technology RSS to JSON logic for perfect dynamic image retrieval
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Ftechnology%2Frss.xml')
         .then(response => response.json())
         .then(data => {
             if (data.status === 'ok') {
