@@ -1,0 +1,43 @@
+/* IBM Carbon Overrides to simulate Infosys / TCS Smoothness & Whitespace */
+
+:root {
+  --cds-spacing-05: 1.5rem;
+  --cds-spacing-09: 4rem;
+  --enterprise-section-padding: 6rem 5%;
+}
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--cds-text-primary);
+  background-color: var(--cds-background);
+  line-height: 1.6;
+}
+
+/* Enhancing Grid with TCS-like structured spacing */
+.bx--grid, .cds--grid {
+  max-width: 1440px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Section overrides for Infosys smoothness */
+section {
+  padding: var(--enterprise-section-padding);
+}
+
+.dt-section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+/* Card hover enhancements */
+cds-card, .bx--card {
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.38, 0.9), box-shadow 0.3s ease;
+}
+
+cds-card:hover, .bx--card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08); /* Minimal hover sophistication */
+}

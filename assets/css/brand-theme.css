@@ -1,0 +1,341 @@
+/* IBM Dotcom Carbon Theme Overrides */
+
+:root {
+    --ibm-blue-60: #0f62fe;
+    --ibm-gray-100: #161616;
+    --ibm-gray-90: #262626;
+    --ibm-gray-80: #393939;
+    --ibm-gray-70: #525252;
+    --ibm-gray-10: #f4f4f4;
+    --ibm-white: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--ibm-white);
+    color: var(--ibm-gray-100);
+    font-family: 'IBM Plex Sans', "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* IBM Masthead exactly imitating ibm.com */
+.ibm-masthead {
+    background-color: var(--ibm-gray-100);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    color: var(--ibm-white);
+    border-bottom: 1px solid var(--ibm-gray-80);
+}
+
+.ibm-masthead-hamburger {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--ibm-gray-80);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ibm-masthead-hamburger:hover {
+    background-color: var(--ibm-gray-80);
+}
+
+.ibm-masthead-logo-container {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+}
+
+.ibm-masthead-logo {
+    height: 1.5rem;
+    fill: var(--ibm-white);
+    filter: brightness(0) invert(1);
+}
+
+.ibm-masthead-nav {
+    display: none;
+    height: 100%;
+}
+
+@media (max-width: 65.9375rem) {
+    .ibm-masthead-nav.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 3rem);
+        background-color: var(--ibm-gray-100);
+        padding: 1rem 0;
+        box-sizing: border-box;
+    }
+
+    .ibm-masthead-nav.is-open .ibm-masthead-nav-item {
+        height: auto;
+        padding: 1.5rem 2rem;
+        font-size: 1.25rem;
+        width: 100%;
+        border-bottom: 1px solid var(--ibm-gray-80);
+    }
+}
+
+@media (min-width: 66rem) {
+    .ibm-masthead-nav {
+        display: flex;
+        flex: 1;
+        margin-left: 1rem;
+    }
+
+    .ibm-masthead-hamburger {
+        display: none;
+    }
+}
+
+.ibm-masthead-nav-item {
+    color: var(--ibm-white);
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-weight: 400;
+    border-bottom: 2px solid transparent;
+}
+
+.ibm-masthead-nav-item:hover {
+    border-bottom-color: var(--ibm-white);
+}
+
+/* IBM Leadspace (Hero) */
+.ibm-leadspace {
+    padding-top: 5rem;
+    min-height: 38rem;
+    background-color: var(--ibm-gray-100);
+    color: var(--ibm-white);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.ibm-leadspace-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.ibm-leadspace-content {
+    position: relative;
+    z-index: 1;
+    max-width: 64rem;
+}
+
+.ibm-leadspace-headline {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    letter-spacing: 0;
+}
+
+.ibm-leadspace-copy {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    max-width: 42rem;
+}
+
+.ibm-leadspace-button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ibm-btn-primary {
+    background-color: var(--ibm-blue-60);
+    color: var(--ibm-white);
+    border: none;
+    padding: 1rem 4rem 1rem 1rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    transition: background-color 0.2s;
+}
+
+.ibm-btn-primary::after {
+    content: "→";
+    position: absolute;
+    right: 1rem;
+    font-size: 1rem;
+}
+
+.ibm-btn-primary:hover {
+    background-color: #0353e9;
+}
+
+.ibm-btn-tertiary {
+    background-color: transparent;
+    color: var(--ibm-white);
+    border: 1px solid var(--ibm-white);
+    padding: 1rem 4rem 1rem 1rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.ibm-btn-tertiary::after {
+    content: "→";
+    position: absolute;
+    right: 1rem;
+    font-size: 1rem;
+}
+
+.ibm-btn-tertiary:hover {
+    background-color: var(--ibm-gray-80);
+}
+
+/* IBM Trending Section */
+.ibm-content-section {
+    padding: 4rem 0;
+    background-color: var(--ibm-white);
+}
+
+.ibm-section-title {
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+/* IBM Cards layout */
+.ibm-card {
+    background-color: var(--ibm-gray-10);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--ibm-gray-100);
+    transition: background-color 0.2s;
+}
+
+.ibm-card:hover {
+    background-color: #e5e5e5;
+}
+
+.ibm-card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.ibm-card-content {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.ibm-card-eyebrow {
+    font-size: 0.75rem;
+    color: var(--ibm-gray-70);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.ibm-card-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.ibm-card-footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* IBM Fat Footer */
+.ibm-footer {
+    background-color: var(--ibm-gray-100);
+    color: var(--ibm-white);
+    padding-top: 3rem;
+}
+
+.ibm-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 42rem) {
+    .ibm-footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 66rem) {
+    .ibm-footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.ibm-footer-heading {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.ibm-footer-link {
+    display: block;
+    color: #c6c6c6;
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+}
+
+.ibm-footer-link:hover {
+    color: var(--ibm-white);
+    text-decoration: underline;
+}
+
+.ibm-footer-locale {
+    border-top: 1px solid var(--ibm-gray-80);
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ibm-footer-bottom-link {
+    color: #c6c6c6;
+    text-decoration: none;
+    font-size: 0.75rem;
+    margin-right: 1.5rem;
+}
+
+.ibm-footer-bottom-link:hover {
+    color: var(--ibm-white);
+    text-decoration: underline;
+}

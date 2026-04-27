@@ -1,0 +1,33 @@
+/* Responsive Overrides */
+@media (max-width: 1056px) {
+    .dt-hero {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .dt-hero-headline {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 672px) {
+    .dt-hero-headline {
+        font-size: 2.25rem;
+    }
+
+    .dt-section-title {
+        font-size: 2rem;
+    }
+
+    :root {
+        --enterprise-section-padding: 4rem 1rem;
+    }
+
+    /* IBM Masthead mobile cleanup */
+    .ibm-masthead-logo-container {
+        width: 100%;
+        justify-content: center;
+        padding-right: 3rem;
+        /* Offset for hamburger space to truly center */
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "darion-technologies",
+  "version": "1.0.0",
+  "description": "Darion Technologies - Enterprise Software Branding Website",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Darion Technologies",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^30.0.0"
+  }
+}
